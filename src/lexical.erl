@@ -12,7 +12,8 @@
 -export([format_error/1]).
 
 %% User code. This is placed here to allow extra attributes.
--file("./src/lexical.xrl", 22).
+-file("./src/lexical.xrl", 23).
+
 
 
 -file("/opt/local/lib/erlang/lib/parsetools-2.0.3/include/leexinc.hrl", 14).
@@ -275,7 +276,7 @@ yysuf(List, N) -> lists:nthtail(N, List).
 %% return signal either an unrecognised character or end of current
 %% input.
 
--file("./src/lexical.erl", 277).
+-file("./src/lexical.erl", 278).
 yystate() -> 7.
 
 yystate(10, Ics, Line, Tlen, _, _) ->
@@ -360,52 +361,52 @@ yyaction(9, _, _, TokenLine) ->
 yyaction(_, _, _, _) -> error.
 
 -compile({inline,yyaction_0/2}).
--file("./src/lexical.xrl", 4).
+-file("./src/lexical.xrl", 5).
 yyaction_0(TokenChars, TokenLine) ->
      { token, { number, TokenLine, list_to_integer (TokenChars) } } .
 
 -compile({inline,yyaction_1/2}).
--file("./src/lexical.xrl", 7).
+-file("./src/lexical.xrl", 8).
 yyaction_1(TokenChars, TokenLine) ->
      { token, { number, TokenLine, list_to_float (TokenChars) } } .
 
 -compile({inline,yyaction_2/1}).
--file("./src/lexical.xrl", 9).
+-file("./src/lexical.xrl", 10).
 yyaction_2(TokenLine) ->
      { token, { '+', TokenLine } } .
 
 -compile({inline,yyaction_3/1}).
--file("./src/lexical.xrl", 10).
+-file("./src/lexical.xrl", 11).
 yyaction_3(TokenLine) ->
      { token, { '-', TokenLine } } .
 
 -compile({inline,yyaction_4/1}).
--file("./src/lexical.xrl", 11).
+-file("./src/lexical.xrl", 12).
 yyaction_4(TokenLine) ->
      { token, { '/', TokenLine } } .
 
 -compile({inline,yyaction_5/1}).
--file("./src/lexical.xrl", 12).
+-file("./src/lexical.xrl", 13).
 yyaction_5(TokenLine) ->
      { token, { '*', TokenLine } } .
 
 -compile({inline,yyaction_6/1}).
--file("./src/lexical.xrl", 13).
+-file("./src/lexical.xrl", 14).
 yyaction_6(TokenLine) ->
      { token, { '(', TokenLine } } .
 
 -compile({inline,yyaction_7/1}).
--file("./src/lexical.xrl", 14).
+-file("./src/lexical.xrl", 15).
 yyaction_7(TokenLine) ->
      { token, { ')', TokenLine } } .
 
 -compile({inline,yyaction_8/0}).
--file("./src/lexical.xrl", 16).
+-file("./src/lexical.xrl", 17).
 yyaction_8() ->
      skip_token .
 
 -compile({inline,yyaction_9/1}).
--file("./src/lexical.xrl", 17).
+-file("./src/lexical.xrl", 18).
 yyaction_9(TokenLine) ->
      { end_token, { '$end', TokenLine } } .
 

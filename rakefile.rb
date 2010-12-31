@@ -1,14 +1,20 @@
-grammer = './src/grammer.yrl'
+grammer = './src/grammar.yrl'
 lexical = './src/lexical.xrl'
+erls = FileList.new('./src/*.erl')
+erls.add('./src/grammar.erl')
+erls.add('./src/lexical.erl')
 
 
+desc 'Compiles all files to beam'
 task :default => [:parser, :lexer] do
-
+    erls.each do |f|
+       sh "erlc -o ./ebin #{f}"
+    end
 end
 
 desc 'Generates the parser code from grammer.yrl'
-task :parser do
-    sh "./yecc.erl #{grammer}"
+task :parser do 
+    sh "./yecc.erl #{grammar}"
 end
 
 desc 'Generates the lexer code from lexical.xrl'
@@ -16,3 +22,5 @@ task :lexer do
     sh "./leex.erl #{lexical}"
 end
 
+task :clean do
+end
