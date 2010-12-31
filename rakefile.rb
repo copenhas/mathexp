@@ -1,4 +1,4 @@
-grammer = './src/grammar.yrl'
+grammar = './src/grammar.yrl'
 lexical = './src/lexical.xrl'
 erls = FileList.new('./src/*.erl')
 erls.add('./src/grammar.erl')
