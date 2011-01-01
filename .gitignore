@@ -1,2 +1,5 @@
 *.swp
+*.swo
 *.beam
+src/grammar.erl
+src/lexical.erl

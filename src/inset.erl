@@ -23,6 +23,6 @@ multiply({multiply}, [Right, Left | Stack], Program) ->
 divide({divide}, [Right, Left | Stack], Program) -> 
     {[Left / Right | Stack], Program}.
 
-return({return, Pid}, [Value | Stack], Program) -> 
-    Pid ! {return, Value},
+return({return, ProgId, Pid}, [Value | Stack], Program) -> 
+    Pid ! {return, ProgId, Value},
     {Stack, Program}.
